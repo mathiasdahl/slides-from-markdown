@@ -17,13 +17,26 @@ No IDE or git required — just Node and a terminal (PowerShell, Command Prompt,
 
 ## Quick start (npx)
 
-The easiest way to convert a deck is with `npx` — no clone or `npm install` needed:
+Create a folder, open a terminal there, and run these three commands:
+
+```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides init
+npx --package=github:mathiasdahl/slides-from-markdown md2slides slides.md -o slides.html
+npx --package=github:mathiasdahl/slides-from-markdown md2slides open slides.html
+```
+
+That copies the example deck, builds a single HTML presentation, and opens it in your default browser. The first run downloads the tool (may take a few seconds); later runs are faster.
+
+### Convert your own deck
+
+Run the command from the folder that contains your `.md` file:
 
 ```bash
 npx --package=github:mathiasdahl/slides-from-markdown md2slides my-talk.md -o my-talk.html
+npx --package=github:mathiasdahl/slides-from-markdown md2slides open my-talk.html
 ```
 
-Run the command from the folder that contains your `.md` file. Local images referenced in the markdown (e.g. `./images/diagram.svg`) are embedded automatically when the files exist next to your markdown.
+Local images referenced in the markdown (e.g. `./images/diagram.svg`) are embedded automatically when the files exist next to your markdown.
 
 If you omit `-o`, the output file uses the same name as the input with a `.html` extension:
 
@@ -32,47 +45,19 @@ npx --package=github:mathiasdahl/slides-from-markdown md2slides my-talk.md
 # writes my-talk.html
 ```
 
-The first run downloads the tool (may take a few seconds); later runs are faster.
-
-### Start from the example deck
-
-To copy the bundled example (`slides.md` and `images/`) into the current folder:
-
-```bash
-npx --package=github:mathiasdahl/slides-from-markdown md2slides init
-```
-
-Copy into a subfolder instead:
+Copy the example into a subfolder instead of the current directory:
 
 ```bash
 npx --package=github:mathiasdahl/slides-from-markdown md2slides init my-deck
 ```
 
-If `slides.md` or `images/` already exist, add `--force` to overwrite them. Then convert:
-
-```bash
-npx --package=github:mathiasdahl/slides-from-markdown md2slides slides.md -o slides.html
-```
+If `slides.md` or `images/` already exist, add `--force` to overwrite them.
 
 Show all options:
 
 ```bash
 npx --package=github:mathiasdahl/slides-from-markdown md2slides --help
 ```
-
-## Try it with the example deck
-
-Want to test before writing your own slides?
-
-1. Create a folder and open a terminal there.
-2. Run:
-
-```bash
-npx --package=github:mathiasdahl/slides-from-markdown md2slides init
-npx --package=github:mathiasdahl/slides-from-markdown md2slides slides.md -o slides.html
-```
-
-3. Open `slides.html` in your browser.
 
 You can also download [`example/slides.md`](example/slides.md) and [`example/images/`](example/images/) manually from the [example folder](https://github.com/mathiasdahl/slides-from-markdown/tree/main/example) on GitHub.
 

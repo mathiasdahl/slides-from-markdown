@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { buildFromFile } = require('../lib/build');
 const { initExample } = require('../lib/init-example');
+const { openFile } = require('../lib/open-file');
 
 function printHelp() {
   console.log(`Convert Markdown to a single-file reveal.js presentation.
@@ -11,10 +12,12 @@ function printHelp() {
 Usage:
   md2slides <input.md> [options]
   md2slides init [folder] [options]
+  md2slides open <file.html>
 
 Commands:
   init [folder]         Copy the example slides.md and images/ folder
                         into the current directory or into <folder>
+  open <file.html>      Open a presentation in your default browser
 
 Options:
   -o, --output <file>   Output HTML file (default: same name as input, .html)
@@ -30,8 +33,8 @@ Slide syntax:
 
 Examples:
   md2slides init
-  md2slides init my-deck
   md2slides slides.md -o slides.html
+  md2slides open slides.html
 `);
 }
 
@@ -70,6 +73,26 @@ function parseInitArgs(argv) {
       throw new Error('The --output option is only valid when converting a markdown file.');
     } else if (!arg.startsWith('-') && !args.targetDir) {
       args.targetDir = arg;
+    } else {
+      throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+
+  return args;
+}
+
+function parseOpenArgs(argv) {
+  const args = { file: null, help: false };
+
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+
+    if (arg === '-h' || arg === '--help') {
+      args.help = true;
+    } else if (arg === '-o' || arg === '--output' || arg === '--force') {
+      throw new Error(`The ${arg} option is only valid for other md2slides commands.`);
+    } else if (!arg.startsWith('-') && !args.file) {
+      args.file = arg;
     } else {
       throw new Error(`Unknown argument: ${arg}`);
     }
@@ -122,8 +145,26 @@ function runInit(argv) {
   const slidesPath = path.join(targetDir, 'slides.md');
   const htmlPath = path.join(targetDir, 'slides.html');
   console.log('');
-  console.log('Next step:');
-  console.log(`  md2slides ${slidesPath} -o ${htmlPath}`);
+  console.log('Next steps:');
+  console.log(`  md2slides ${path.basename(slidesPath)} -o ${path.basename(htmlPath)}`);
+  console.log(`  md2slides open ${path.basename(htmlPath)}`);
+}
+
+function runOpen(argv) {
+  const args = parseOpenArgs(argv);
+
+  if (args.help) {
+    printHelp();
+    process.exit(0);
+  }
+
+  if (!args.file) {
+    console.error('Missing HTML file. Usage: md2slides open <file.html>');
+    process.exit(1);
+  }
+
+  openFile(args.file);
+  console.log(`Opened ${path.resolve(args.file)}`);
 }
 
 function main() {
@@ -132,6 +173,11 @@ function main() {
   try {
     if (argv[0] === 'init') {
       runInit(argv.slice(1));
+      return;
+    }
+
+    if (argv[0] === 'open') {
+      runOpen(argv.slice(1));
       return;
     }
 
