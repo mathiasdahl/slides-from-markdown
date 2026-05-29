@@ -173,7 +173,7 @@ reveal:
 
 ### Themes
 
-Set `theme` in the YAML front matter to style the whole deck (fonts, colors, contrast). Default is `black`.
+Set `theme` in the YAML front matter to style the whole deck (fonts, colors, contrast). Default is `black`. Preview all themes in the [reveal.js theme gallery](https://revealjs.com/themes/).
 
 | Theme | Theme | Theme | Theme |
 |-------|-------|-------|-------|

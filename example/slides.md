@@ -123,6 +123,8 @@ Available themes:
 
 The default is `black`. Try changing `theme:` in the front matter and rebuilding to see the difference.
 
+See the [reveal.js theme gallery](https://revealjs.com/themes/) for previews of each theme.
+
 Themes control fonts, text color, and link styling for the entire presentation. Use per-slide `data-background` attributes when you only want one slide to look different.
 
 ---
