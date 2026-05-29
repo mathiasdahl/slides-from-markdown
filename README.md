@@ -4,7 +4,7 @@ Convert a Markdown file into a **single HTML file** you can open in any browser 
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) 18 or later (includes `npm`)
+- [Node.js](https://nodejs.org/) 18 or later (includes `npm` and `npx`)
 
 Check your install:
 
@@ -13,15 +13,58 @@ node --version
 npm --version
 ```
 
-## Setup
+No IDE or git required — just Node and a terminal (PowerShell, Command Prompt, or bash).
 
-Clone or copy this project, then install dependencies:
+## Quick start (npx)
+
+The easiest way to convert a deck is with `npx` — no clone or `npm install` needed:
 
 ```bash
-npm install
+npx --package=github:mathiasdahl/slides-from-markdown md2slides my-talk.md -o my-talk.html
 ```
 
-## Quick start
+Run the command from the folder that contains your `.md` file. Local images referenced in the markdown (e.g. `./images/diagram.svg`) are embedded automatically when the files exist next to your markdown.
+
+If you omit `-o`, the output file uses the same name as the input with a `.html` extension:
+
+```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides my-talk.md
+# writes my-talk.html
+```
+
+The first run downloads the tool (may take a few seconds); later runs are faster.
+
+Show all options:
+
+```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides --help
+```
+
+## Try it with the example deck
+
+Want to test before writing your own slides?
+
+1. Download [`example/slides.md`](example/slides.md) and the [`example/images/`](example/images/) folder from this repo (keep the same folder layout).
+2. Open a terminal in that folder.
+3. Run:
+
+```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides slides.md -o slides.html
+```
+
+4. Open `slides.html` in your browser.
+
+On GitHub you can browse the [example folder](https://github.com/mathiasdahl/slides-from-markdown/tree/main/example), download individual files, or download the whole repository as a ZIP and use the `example/` directory.
+
+## Setup (for development)
+
+If you want to hack on the converter itself, clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/mathiasdahl/slides-from-markdown.git
+cd slides-from-markdown
+npm install
+```
 
 Build the included example deck:
 
@@ -33,9 +76,9 @@ Open `example/slides.html` in your browser.
 
 To edit the slides, change `example/slides.md` and run `npm run build` again.
 
-## Usage
+## Usage (local install)
 
-Convert any Markdown file:
+When working from a cloned copy of this repo:
 
 ```bash
 node bin/md2slides.js path/to/slides.md -o path/to/slides.html
@@ -209,8 +252,14 @@ slides_from_markdown/
 
 ## Troubleshooting
 
-**`node` or `npm` not found**  
+**`node`, `npm`, or `npx` not found**  
 Install Node.js from [nodejs.org](https://nodejs.org/) and restart your terminal.
+
+**`ENOENT ... reveal.js`**  
+Update to the latest version on GitHub and run the `npx` command again. Use the `--package=github:mathiasdahl/slides-from-markdown` form shown above.
+
+**Images missing in the output**  
+Run the command from the folder containing your `.md` file, and keep image paths relative to that file (e.g. `./images/diagram.svg`).
 
 **No slides found**  
 Make sure slide breaks use a line with only `---`. The YAML front matter at the top of the file also uses `---`; that is separate from slide breaks.
