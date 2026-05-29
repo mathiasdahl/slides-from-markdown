@@ -84,6 +84,8 @@ Reveal step-by-step content with the `fragment` class (press Space or Right/Down
 - Second point <!-- .element: class="fragment" -->
 - Third point <!-- .element: class="fragment" -->
 
+Look at the source slides.md file to see how it's done.
+
 ---
 
 ## Backgrounds
