@@ -90,15 +90,40 @@ Look at the source slides.md file to see how it's done.
 
 ## Backgrounds
 
-<!-- .slide: data-background="#1a1a2e" -->
+<!-- .slide: data-background="#1e40af" -->
 
-Custom backgrounds use slide attributes.
+This slide uses a **custom blue background** (`#1e40af`).
 
-Add this HTML comment anywhere in the slide:
+Compare it with the default black theme on neighboring slides — the color is set with a slide attribute comment:
 
 ```markdown
-<!-- .slide: data-background="#1a1a2e" -->
+<!-- .slide: data-background="#1e40af" -->
 ```
+
+Add the comment anywhere in the slide. Hex colors, `hsl()`, and `rgb()` all work.
+
+---
+
+## Themes
+
+The whole deck uses one reveal.js theme, set in the YAML front matter at the top of the file:
+
+```yaml
+theme: league
+```
+
+Available themes:
+
+| | | | |
+|--|--|--|--|
+| `beige` | `black` | `black-contrast` | `blood` |
+| `dracula` | `league` | `moon` | `night` |
+| `serif` | `simple` | `sky` | `solarized` |
+| `white` | `white-contrast` | | |
+
+The default is `black`. Try changing `theme:` in the front matter and rebuilding to see the difference.
+
+Themes control fonts, text color, and link styling for the entire presentation. Use per-slide `data-background` attributes when you only want one slide to look different.
 
 ---
 

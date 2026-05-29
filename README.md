@@ -171,17 +171,30 @@ reveal:
 | `highlightTheme` | Code block theme (`monokai`, `zenburn`) | `monokai` |
 | `reveal` | Any [reveal.js config](https://revealjs.com/config/) options | see example |
 
-**Themes:** `beige`, `black`, `black-contrast`, `blood`, `dracula`, `league`, `moon`, `night`, `serif`, `simple`, `sky`, `solarized`, `white`, `white-contrast`
+### Themes
+
+Set `theme` in the YAML front matter to style the whole deck (fonts, colors, contrast). Default is `black`.
+
+| Theme | Theme | Theme | Theme |
+|-------|-------|-------|-------|
+| `beige` | `black` | `black-contrast` | `blood` |
+| `dracula` | `league` | `moon` | `night` |
+| `serif` | `simple` | `sky` | `solarized` |
+| `white` | `white-contrast` | | |
+
+Code block highlighting uses a separate `highlightTheme` option (`monokai` or `zenburn`).
 
 ### Backgrounds and slide attributes
 
-Add an HTML comment anywhere in a slide:
+Add an HTML comment anywhere in a slide to override the background for that slide only:
 
 ```markdown
-<!-- .slide: data-background="#1a1a2e" -->
+<!-- .slide: data-background="#1e40af" -->
 
 ## Slide with a custom background
 ```
+
+Pick a color that contrasts clearly with the default theme so the effect is easy to see (for example a blue like `#1e40af` on the default `black` theme).
 
 ### Code blocks
 
