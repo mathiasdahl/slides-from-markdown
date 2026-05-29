@@ -12,11 +12,11 @@ reveal:
   hash: true
 ---
 
-# Markdown → reveal.js
+# Slides from Markdown
 
-Convert this file to a **single HTML presentation**.
+Convert this file to a **single HTML presentation based on Reveal.js**.
 
-Press `S` for speaker notes · `F` for fullscreen · `Esc` for overview · `Ctrl+Shift+F` to search
+Press `S` for speaker notes · `F` for fullscreen · `Esc` for overview · `Ctrl+Shift+F` to search. Arrow keys (Right, Left, Up, Down) moves around in the presentation.
 
 ---
 
@@ -33,6 +33,8 @@ Press `S` for speaker notes · `F` for fullscreen · `Esc` for overview · `Ctrl
 Put a line with only `---` between horizontal slides.
 
 Use `--` between **vertical** slides (nested under one horizontal slide):
+
+Try to use the arrow up and down keys now.
 
 --
 
@@ -76,7 +78,7 @@ console.log(greet('world'));
 
 ## Fragments
 
-Reveal step-by-step content with the `fragment` class:
+Reveal step-by-step content with the `fragment` class (press Space or Right/Down arrow to show bullets):
 
 - First point <!-- .element: class="fragment" -->
 - Second point <!-- .element: class="fragment" -->
