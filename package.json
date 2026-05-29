@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Convert Markdown to a single-file reveal.js presentation",
   "main": "lib/build.js",
+  "files": [
+    "bin/",
+    "lib/",
+    "example/"
+  ],
   "bin": {
     "md2slides": "bin/md2slides.js"
   },

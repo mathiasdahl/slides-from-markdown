@@ -34,6 +34,26 @@ npx --package=github:mathiasdahl/slides-from-markdown md2slides my-talk.md
 
 The first run downloads the tool (may take a few seconds); later runs are faster.
 
+### Start from the example deck
+
+To copy the bundled example (`slides.md` and `images/`) into the current folder:
+
+```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides init
+```
+
+Copy into a subfolder instead:
+
+```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides init my-deck
+```
+
+If `slides.md` or `images/` already exist, add `--force` to overwrite them. Then convert:
+
+```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides slides.md -o slides.html
+```
+
 Show all options:
 
 ```bash
@@ -44,17 +64,17 @@ npx --package=github:mathiasdahl/slides-from-markdown md2slides --help
 
 Want to test before writing your own slides?
 
-1. Download [`example/slides.md`](example/slides.md) and the [`example/images/`](example/images/) folder from this repo (keep the same folder layout).
-2. Open a terminal in that folder.
-3. Run:
+1. Create a folder and open a terminal there.
+2. Run:
 
 ```bash
+npx --package=github:mathiasdahl/slides-from-markdown md2slides init
 npx --package=github:mathiasdahl/slides-from-markdown md2slides slides.md -o slides.html
 ```
 
-4. Open `slides.html` in your browser.
+3. Open `slides.html` in your browser.
 
-On GitHub you can browse the [example folder](https://github.com/mathiasdahl/slides-from-markdown/tree/main/example), download individual files, or download the whole repository as a ZIP and use the `example/` directory.
+You can also download [`example/slides.md`](example/slides.md) and [`example/images/`](example/images/) manually from the [example folder](https://github.com/mathiasdahl/slides-from-markdown/tree/main/example) on GitHub.
 
 ## Setup (for development)
 
@@ -260,6 +280,9 @@ Update to the latest version on GitHub and run the `npx` command again. Use the 
 
 **Images missing in the output**  
 Run the command from the folder containing your `.md` file, and keep image paths relative to that file (e.g. `./images/diagram.svg`).
+
+**`init` refuses to overwrite existing files**  
+Use `md2slides init --force` if you want to replace an existing `slides.md` or `images/` folder.
 
 **No slides found**  
 Make sure slide breaks use a line with only `---`. The YAML front matter at the top of the file also uses `---`; that is separate from slide breaks.
