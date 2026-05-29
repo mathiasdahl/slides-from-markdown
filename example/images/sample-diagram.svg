@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Sample diagram">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d6a4f"/>
+      <stop offset="100%" stop-color="#1b4332"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="16" fill="url(#bg)"/>
+  <rect x="40" y="48" width="180" height="72" rx="10" fill="#95d5b2" stroke="#d8f3dc" stroke-width="3"/>
+  <text x="130" y="92" text-anchor="middle" fill="#081c15" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600">Markdown</text>
+  <rect x="420" y="48" width="180" height="72" rx="10" fill="#74c69d" stroke="#d8f3dc" stroke-width="3"/>
+  <text x="510" y="92" text-anchor="middle" fill="#081c15" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600">HTML</text>
+  <rect x="230" y="240" width="180" height="72" rx="10" fill="#b7e4c7" stroke="#d8f3dc" stroke-width="3"/>
+  <text x="320" y="284" text-anchor="middle" fill="#081c15" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600">Slides</text>
+  <line x1="220" y1="84" x2="420" y2="84" stroke="#d8f3dc" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="130" y1="120" x2="280" y2="240" stroke="#d8f3dc" stroke-width="4"/>
+  <line x1="510" y1="120" x2="360" y2="240" stroke="#d8f3dc" stroke-width="4"/>
+  <text x="320" y="28" text-anchor="middle" fill="#d8f3dc" font-family="Segoe UI, sans-serif" font-size="18">Example local image (embedded at build time)</text>
+</svg>
